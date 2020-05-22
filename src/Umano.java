@@ -7,4 +7,12 @@ public class Umano {
 	public void setMalato(boolean b) {
 		
 	}
+	
+	public int getDifese() {
+		return 0;
+	}
+	
+	public int getEtà() {
+		return 0;
+	}
 }
