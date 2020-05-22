@@ -32,5 +32,4 @@ public class GestioneUmani extends Umani{
      double distanza = Math.sqrt(Tot); 
      return distanza;
   }
-  //Math.floor()//
 }
