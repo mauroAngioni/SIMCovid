@@ -2,7 +2,7 @@ package SIMCovid;
 
 public class Umano {
 
-	int salute;
+	int salute;// 0 sano 1 infetto
 	
 	public Umano(int salute) {
 		this.salute = salute;
