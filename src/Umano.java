@@ -1,28 +1,22 @@
 public class Umano {
-    private Umano link;
-    private int infettabilità;
     private int x;
     private int y;
     private boolean malato;
+    private double difese;
+    private int età;
 
-    public Umano(String informazioni) {
-        setInfo(informazioni);
+    public Umano(int x,int y,boolean malato) {
+        this.x = x;
+        this.y = y;
+        this.malato = malato;
     }
 //set/get
-    public Umano getLink() {
-        return link;
+    public boolean getMalato() {
+        return malato;
     }
 
-    public void setLink(Umano link) {
-        this.link = link;
-    }
-
-    public int getInfettabilità() {
-        return infettabilità;
-    }
-
-    public void setInfettabilità(int inf) {
-        infettabilità = inf;
+    public void setMalato(boolean malato) {
+        this.malato = malato;
     }
     public int getX() {
         return x;
@@ -38,12 +32,18 @@ public class Umano {
     public void setY(int y) {
         this.y = y;
     }
-    public bool getMalato() {
-        return malato;
+    public double getDifese() {
+        return difese;
     }
 
-    public void setMalato(bool malato) {
-        this.malato = malato;
+    public void setDifese(double difese) {
+        this.difese = difese;
+    }
+    public void setEtà(int età) {
+        this.età = età;
+    }
+    public int getEtà() {
+        return età;
     }
 //Metodi vari
 }
