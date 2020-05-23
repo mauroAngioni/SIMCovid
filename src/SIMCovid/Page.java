@@ -1,6 +1,7 @@
 package SIMCovid;
 
 
+import java.awt.BorderLayout;
 import java.util.LinkedList;
 
 import javax.swing.JFrame;
@@ -15,13 +16,13 @@ public class Page extends JFrame {
 	    setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		add(grafico);
-		setBounds(0, 0, 200, 100);
+		setBounds(0, 0, 400, 400);
 	}
 	
 	public void disegna() {
 		System.out.println("start");
 		int infetti = 0;
-		System.out.println("punti size " + punti.size());
+		System.out.println("page punti size " + punti.size());
 		System.out.println("persone size " + persone.size());
 		for (int i=0; i<persone.size(); i++) {
 			System.out.println("uomo " + i + "salute " + persone.get(i).getSalute());
@@ -30,8 +31,7 @@ public class Page extends JFrame {
 				infetti++; 
 			}
 		}
-		System.out.println(infetti);
-		infetti = Math.abs(infetti - getWidth());
+		System.out.println("totale infetti" + infetti);
 		punti.add(infetti);
 		grafico.repaint();
 		

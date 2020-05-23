@@ -22,15 +22,33 @@ public class Plot extends JPanel{
 		super.paintComponent(g2);
 		Graphics2D g = (Graphics2D)g2;
 		int[] x = new int[punti.size()];
-		System.out.println(punti.size());
-		int salto = getWidth()/punti.size();
-		System.out.println(punti.size());
-		System.out.println(getWidth());
-		System.out.println(salto);
+		System.out.println("size punti " + punti.size());
+		int salto;
+		if(punti.size()==1) {
+			salto = getWidth();
+		}
+		else if(punti.size()==0) {
+			salto = 0;
+		}
+		else {
+			salto = getWidth()/(punti.size()-1);
+		}
+		System.out.println("width " + getWidth());
+		System.out.println("salto" + salto);
 		for (int j=0; j<punti.size() ; j++ ) {
 			x[j] = salto*j;
 			System.out.println("x" + j + " " + x[j]);
 		}
+		int max = punti.get(0);
+		for (int i=1; i<punti.size(); i++) {
+			if(punti.get(i)>max) {
+				max=punti.get(i);
+			}
+		}
+		for (int i=1; i<punti.size(); i++) {
+			punti.set(i, (punti.get(i)/max)*getHeight());
+		}
+		
 		for (int i=0; i<punti.size()-1; i++) {
 			if(color == true) {
 				g.setPaint(Color.blue);

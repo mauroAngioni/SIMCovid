@@ -1,5 +1,6 @@
 package SIMCovid;
-
+////////A PURO SCOPO DI TEST
+///////NON GESTIAMO NOI LA CLASSE UMANO
 public class Umano {
 
 	int salute;// 0 sano 1 infetto

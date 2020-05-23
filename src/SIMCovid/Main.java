@@ -16,6 +16,7 @@ public class Main {
 			u.add(m);
 		}
 		p.disegna();
+		Thread.sleep(2000);
 		for (int i=5; i<10 ; i++) {
 			u.get(i).setSalute(1);
 		}
