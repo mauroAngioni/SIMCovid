@@ -24,19 +24,22 @@ public class Plot extends JPanel{
 		int[] x = new int[punti.size()];
 		System.out.println("size punti " + punti.size());
 		int salto;
+		int pad = 40;//PAD
+		int width = getWidth()-pad;
+		int heigth = getHeight()-pad;
 		if(punti.size()==1) {
-			salto = getWidth();
+			salto = width;
 		}
 		else if(punti.size()==0) {
 			salto = 0;
 		}
 		else {
-			salto = getWidth()/(punti.size()-1);
+			salto = width/(punti.size()-1);
 		}
-		System.out.println("width " + getWidth());
+		System.out.println("width " + width);
 		System.out.println("salto" + salto);
 		for (int j=0; j<punti.size() ; j++ ) {
-			x[j] = salto*j;
+			x[j] = (salto*j)+pad;
 			System.out.println("x" + j + " " + x[j]);
 		}
 		int max = punti.get(0);
@@ -46,7 +49,7 @@ public class Plot extends JPanel{
 			}
 		}
 		for (int i=1; i<punti.size(); i++) {
-			punti.set(i, (punti.get(i)/max)*getHeight());
+			punti.set(i, (punti.get(i)/max)*heigth);
 		}
 		
 		for (int i=0; i<punti.size()-1; i++) {
@@ -60,9 +63,14 @@ public class Plot extends JPanel{
 			}
 			System.out.println(color);
 			g.drawLine(x[i], punti.get(i), x[i+1], punti.get(i+1));
-			g.drawString("Prova testo", 10, 10);//testi sul grafico
 			
 		}
+		int pos = 20;
+		g.setPaint(Color.black);
+		g.drawLine(pad, getHeight()-pad, pad, 0);
+		g.drawLine(pad, getHeight()-pad, getWidth(), heigth);
+		g.drawString("Umani", 1, 10);//testi sul grafico
+		g.drawString("Tempo", width, heigth+pos);//testi sul grafico
 		
 		
 	}
