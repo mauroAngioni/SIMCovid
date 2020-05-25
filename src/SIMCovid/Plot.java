@@ -12,10 +12,12 @@ import javax.swing.JPanel;
 
 public class Plot extends JPanel{
 	
-	private LinkedList<Integer> punti = new LinkedList<Integer>();
+	private LinkedList<Float> punti = new LinkedList<Float>();
+	private LinkedList<Float> sani = new LinkedList<Float>();
 	private boolean color = true;//true rosso false blue
-	public Plot(LinkedList<Integer>punti) {
+	public Plot(LinkedList<Float>punti, LinkedList<Float>sani) {
 		this.punti = punti;
+		this.sani = sani;
 	}
 	
 	public void paintComponent(Graphics g2) {
@@ -37,40 +39,41 @@ public class Plot extends JPanel{
 			salto = width/(punti.size()-1);
 		}
 		System.out.println("width " + width);
+		System.out.println("heigth " + heigth);
 		System.out.println("salto" + salto);
 		for (int j=0; j<punti.size() ; j++ ) {
 			x[j] = (salto*j)+pad;
 			System.out.println("x" + j + " " + x[j]);
 		}
-		int max = punti.get(0);
+		Float max = punti.get(0);
+		System.out.println("punti.get(0) " + punti.get(0));
 		for (int i=1; i<punti.size(); i++) {
 			if(punti.get(i)>max) {
 				max=punti.get(i);
 			}
 		}
-		for (int i=1; i<punti.size(); i++) {
-			punti.set(i, (punti.get(i)/max)*heigth);
+		for (int i=0; i<sani.size(); i++) {
+			if(sani.get(i)>max) {
+				max=sani.get(i);
+			}
 		}
-		
+		System.out.println("max " + max);
 		for (int i=0; i<punti.size()-1; i++) {
-			if(color == true) {
-				g.setPaint(Color.blue);
-				color = !color;
-			}
-			else {
-				g.setPaint(Color.red);
-				color = !color;
-			}
-			System.out.println(color);
-			g.drawLine(x[i], punti.get(i), x[i+1], punti.get(i+1));
+			System.out.println("sani " + sani.get(i));
+			System.out.println("sani+1  " + sani.get(i+1));
+			g.setPaint(Color.blue);
+			g.drawLine(x[i], (int)Math.abs(((sani.get(i)/max)*heigth)-heigth-1), x[i+1], (int)Math.abs(((sani.get(i+1)/max)*heigth)-heigth-1));
+			g.setPaint(Color.yellow);
+			g.drawLine(x[i], (int)Math.abs(((punti.get(i)/max)*heigth)-heigth), x[i+1], (int)Math.abs(((punti.get(i+1)/max)*heigth)-heigth));
+			
 			
 		}
 		int pos = 20;
 		g.setPaint(Color.black);
 		g.drawLine(pad, getHeight()-pad, pad, 0);
 		g.drawLine(pad, getHeight()-pad, getWidth(), heigth);
-		g.drawString("Umani", 1, 10);//testi sul grafico
-		g.drawString("Tempo", width, heigth+pos);//testi sul grafico
+		g.drawString("Umani", 1, pos);//testi sul grafico
+		g.drawString("Tempo", width-pos, heigth+pos);//testi sul grafico
 		
 		
 	}
