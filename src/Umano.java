@@ -12,7 +12,7 @@ public class Umano {
 		return 0;
 	}
 	
-	public int getEtà() {
+	public int getEta() {
 		return 0;
 	}
 }
