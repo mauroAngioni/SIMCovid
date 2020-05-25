@@ -3,19 +3,20 @@ public class GestioneUmani extends Umani{
   public int Ricerca(Umano u, int range){
     Umano app = new Umano(1000,1000,false);
     Umano last = ListaUmani.getLast();
+    LinkedList<Umano> ListaVicini = new LinkedList<Umano>();
     int i = 0;
     int cont = 0;
     double dist = 0;  
     while (app != last){
       app = ListaUmani.get(i);
       dist = Distanza(u, app);
-      if (dist <= range && app.getMalato() == true){
-        cont++;
+      if (dist <= range){
+        ListaVicini.add(app);
       }
       i++;
     }
-  return cont;
-  }
+  return ListaVicini;
+
   
   
   //Altri metodi
