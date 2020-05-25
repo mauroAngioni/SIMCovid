@@ -60,6 +60,7 @@ public class Plot extends JPanel{
 			}
 			System.out.println(color);
 			g.drawLine(x[i], punti.get(i), x[i+1], punti.get(i+1));
+			g.drawString("Prova testo", 10, 10);//testi sul grafico
 			
 		}
 		
