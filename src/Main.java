@@ -1,5 +1,3 @@
-package SIMCovid;
-
 import java.util.LinkedList;
 
 public class Main {

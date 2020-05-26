@@ -1,6 +1,3 @@
-package SIMCovid;
-
-
 import java.awt.BorderLayout;
 import java.util.LinkedList;
 
