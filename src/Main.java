@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+import javax.swing.JFrame;
+
 import java.util.LinkedList;
 
 class Main {
@@ -25,6 +28,11 @@ class Main {
     Scanner input4 = new Scanner(System.in);
     System.out.println("Durata virus: ");
     durataVirus = input4.nextInt();
+    
+    JFrame f = new JFrame();
+    f.setSize(500, 300);
+    f.getContentPane().add(new SampleComponent());
+    f.setVisible(true);
   }//METODO MAIN
 
 }//CLASSE MAIN
