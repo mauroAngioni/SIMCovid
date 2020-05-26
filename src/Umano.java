@@ -1,21 +1,21 @@
 public class Umano {
     private int x;
     private int y;
-    private boolean malato;
+    private int salute; // 0 in salute 1 malato
     private double difese;
     private int età;
 
-    public Umano(int x,int y,boolean malato) {
+    public Umano(int x,int y,int salute) {
         this.x = x;
         this.y = y;
-        this.malato = malato;
+        this.salute = salute;
     }
-    public boolean getMalato() {
-        return malato;
+    public int getSalute() {
+        return salute;
     }
 
-    public void setMalato(boolean malato) {
-        this.malato = malato;
+    public void setSalute(int salute) {
+        this.salute = salute;
     }
     public int getX() {
         return x;

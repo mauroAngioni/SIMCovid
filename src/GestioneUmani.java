@@ -9,7 +9,7 @@ public class GestioneUmani{
 		}
   
 	  public LinkedList<Umano> Ricerca(Umano u, int range){     
-		  Umano app = new Umano(1000,1000,false);     
+		  Umano app = new Umano(1000,1000, 0);     
 		  Umano last = this.ListaUmani.getLast();      
 		  LinkedList<Umano> ListaVicini = new LinkedList<Umano>();     
 		  int i = 0;     

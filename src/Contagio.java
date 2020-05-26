@@ -31,7 +31,7 @@ public class Contagio {
 				
 				if(prob <= infet) {
 					// Umano infetto
-					u.setMalato(true);
+					u.setSalute(1);
 				}
 			}
 		}
