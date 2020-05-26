@@ -3,7 +3,7 @@ import java.util.LinkedList;
 public class Contagio {
 	
 	public void controlloContagio(LinkedList<Umano> umani) {
-		GestioneUmani gu = new GestioneUmani();
+		GestioneUmani gu = new GestioneUmani(umani);
 		
 		int range = 10; // parametro main
 		double[] infettivita_generale = new double[3]; // parametro main in percentuale per fascia d'età

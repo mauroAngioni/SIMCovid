@@ -1,16 +1,22 @@
 import java.util.LinkedList;
 
-public class GestioneUmani extends Umani{
+public class GestioneUmani{
+	
+		private LinkedList<Umano> ListaUmani;
+	
+		public GestioneUmani(LinkedList<Umano> umani) {
+			this.ListaUmani = umani;
+		}
   
 	  public LinkedList<Umano> Ricerca(Umano u, int range){     
 		  Umano app = new Umano(1000,1000,false);     
-		  Umano last = ListaUmani.getLast();      
+		  Umano last = this.ListaUmani.getLast();      
 		  LinkedList<Umano> ListaVicini = new LinkedList<Umano>();     
 		  int i = 0;     
 		  int cont = 0;     
 		  double dist = 0;       
 		  while (app != last){       
-			  app = ListaUmani.get(i);       
+			  app = this.ListaUmani.get(i);       
 			  dist = Distanza(u, app);       
 			  if (dist <= range){         
 				  ListaVicini.add(app);       
