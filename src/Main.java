@@ -1,29 +1,30 @@
+import java.util.Scanner;
 import java.util.LinkedList;
 
-public class Main {
+class Main {
 
-	public static void main(String[] args) throws InterruptedException {
-		LinkedList<Umano> u = new LinkedList<Umano>();
-		Page p = new Page(u);
-		for (int i=0; i<6 ; i++) {
-			Umano m = new Umano(0, 0, 0);
-			u.add(m);
-		}
-		for (int i=6; i<10 ; i++) {
-			Umano m = new Umano(0, 0, 1);
-			u.add(m);
-		}
-		p.disegna();
-		Thread.sleep(2000);
-		for (int i=2; i<10 ; i++) {
-			u.get(i).setSalute(1);
-		}
-		p.disegna();
-		Thread.sleep(2000);
-		for (int i=5; i<10 ; i++) {
-			u.get(i).setSalute(0);
-		}
-		p.disegna();
-	}
+  static public int coeffdiffusione;
+  static public int infettività;
+  static public int resistenzaAlVirus;
+  static public int durataVirus;
 
-}
+
+  public static void main(String[] args){
+    Scanner input = new Scanner(System.in);
+    System.out.println("Coefficiente di diffusione: ");
+    coeffdiffusione = input.nextInt();
+
+    Scanner input2 = new Scanner(System.in);
+    System.out.println("Infettività: ");
+    infettività = input2.nextInt();
+
+    Scanner input3 = new Scanner(System.in);
+    System.out.println("Resistenza al virus: ");
+    resistenzaAlVirus = input3.nextInt();
+
+    Scanner input4 = new Scanner(System.in);
+    System.out.println("Durata virus: ");
+    durataVirus = input4.nextInt();
+  }//METODO MAIN
+
+}//CLASSE MAIN
