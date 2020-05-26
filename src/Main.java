@@ -24,7 +24,6 @@ public class Main {
 			u.get(i).setSalute(0);
 		}
 		p.disegna();
-		
 	}
 
 }
