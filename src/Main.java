@@ -13,6 +13,7 @@ class Main {
 
 
   public static void main(String[] args){
+	  
     Scanner input = new Scanner(System.in);
     System.out.println("Coefficiente di diffusione: ");
     coeffdiffusione = input.nextInt();
@@ -33,6 +34,7 @@ class Main {
     f.setSize(500, 300);
     f.getContentPane().add(new SampleComponent());
     f.setVisible(true);
+    
   }//METODO MAIN
 
 }//CLASSE MAIN
