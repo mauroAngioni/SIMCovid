@@ -1,4 +1,4 @@
-public class GestioneUmani extends Umani{
+public class GestioneUmani extends LinkedList<Umano>{
   
   public int Ricerca(Umano u, int range){
     Umano app = new Umano(1000,1000,false);
