@@ -1,30 +1,22 @@
-import java.util.LinkedList;
-
-public class GestioneUmani{
-	
-		private LinkedList<Umano> ListaUmani;
-	
-		public GestioneUmani(LinkedList<Umano> umani) {
-			this.ListaUmani = umani;
-		}
+public class GestioneUmani extends Umani{
   
-	  public LinkedList<Umano> Ricerca(Umano u, int range){     
-		  Umano app = new Umano(1000,1000, 0);     
-		  Umano last = this.ListaUmani.getLast();      
-		  LinkedList<Umano> ListaVicini = new LinkedList<Umano>();     
-		  int i = 0;     
-		  int cont = 0;     
-		  double dist = 0;       
-		  while (app != last){       
-			  app = this.ListaUmani.get(i);       
-			  dist = Distanza(u, app);       
-			  if (dist <= range){         
-				  ListaVicini.add(app);       
-				  }       
-			  i++;     
-			  }   
-		  return ListaVicini;
-	  }
+  public int Ricerca(Umano u, int range){
+    Umano app = new Umano(1000,1000,false);
+    Umano last = getLast();
+    LinkedList<Umano> ListaVicini = new LinkedList<Umano>();
+    int i = 0;
+    int cont = 0;
+    double dist = 0;  
+    while (app != last){
+      app = get(i);
+      dist = Distanza(u, app);
+      if (dist <= range && app.getMalato() == true){
+        ListaVicini.add(app);
+      }
+      i++;
+    }
+  return ListaVicini;
+
   
   
   //Altri metodi
