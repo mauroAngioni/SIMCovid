@@ -15,6 +15,7 @@ public class Page extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		add(grafico);
 		setBounds(0, 0, 400, 400);
+		disegna();
 	}
 	
 	public void disegna() {

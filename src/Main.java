@@ -43,6 +43,7 @@ class Main {
     for(int i = 0; i < 20; i++){ //Numero umani
       umani.add(new Umano(0, 0, 0));
     }
+    umani.get(0).setSalute(1);
 
     Init i = new Init();
     i.initializer(umani, m.getMaxX(),  m.getMaxY());
@@ -51,21 +52,23 @@ class Main {
     
     JFrame f = new JFrame();
   	f.setSize(500, 300);
-  	f.getContentPane().add(new SampleComponent(umani));
+  	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  	SampleComponent panel = new SampleComponent(umani);
+  	f.add(panel);
   	f.setVisible(true);
     
-    for (int j = 0; j < 1000; j++){
+    for (int j = 0; j < 100; j++){
     	//Numero di iterazioni simulazione
     	System.out.println("Iterazione: "+j);
     	T.muovi();
     	c.controlloContagio(umani);
-    	f.repaint();
+    	panel.repaint();
     	P.disegna();
     	
     	float infetti = 0;
 		float sani = 0;
-		for (int k=0; k<umani.size(); k++) {
-			if(umani.get(k).getSalute() == 1) {
+		for (Umano u: umani) {
+			if(u.getSalute() == 1) {
 				infetti++; 
 			}
 			else {

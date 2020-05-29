@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 public class Init {
     
-    public void initializer(LinkedList<Umano> Humans, int dimX, int dimY) {
+    public void initializer(GestioneUmani Humans, int dimX, int dimY) {
         int x, y, difese;
 
         for (int i = 0; i < Humans.size(); i++) {

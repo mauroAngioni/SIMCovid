@@ -4,29 +4,28 @@ import java.awt.Graphics;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import java.util.LinkedList;
-public class SampleComponent extends JComponent {
+public class SampleComponent extends JPanel {
 	
 	private GestioneUmani ListaUmani;
-    private Color[] colors = { Color.RED, Color.ORANGE , Color.BLACK };
     
     public SampleComponent(GestioneUmani umani) {
     	this.ListaUmani = umani;
     }
 
     public void paintComponent(Graphics g) {
-	
-    	// Calcola il diametro a partire dalle dimensioni del componente
-    	for(int i=0;i < ListaUmani.size();i++) {
-        		// sceglie a rotazione il colore
-    		if (ListaUmani.get(i).getSalute()==0) {
-    			g.setColor(Color.black);
-    			// Calcola le coordinate del cerchio
-    			g.fillOval(ListaUmani.get(i).getX(),ListaUmani.get(i).getY(),10, 10);
+    	int raggio = 10;
+    	
+    	super.paintComponent(g);
+    	for(Umano u: ListaUmani) {
+    		if (u.getSalute()==0) {
+    			g.setColor(Color.BLACK);
     		}else {      
     			g.setColor(Color.RED);
-    			g.fillOval(ListaUmani.get(i).getX(),ListaUmani.get(i).getY(),10, 10);
     			}
+    		g.fillOval((u.getX()*raggio)+raggio, (u.getY()*raggio)+raggio, raggio, raggio);
 			}
     	}
 

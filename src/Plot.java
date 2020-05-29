@@ -51,7 +51,7 @@ public class Plot extends JPanel{
 			}
 		}
 		
-		for (int i=0; i<punti.size()-1; i++) {
+		for (int i=0; i<punti.size()-2; i++) {
 			g.setPaint(Color.blue);
 			g.drawLine(x[i], (int)Math.abs(((sani.get(i)/max)*heigth)-heigth-1), x[i+1], (int)Math.abs(((sani.get(i+1)/max)*heigth)-heigth-1));
 			g.setPaint(Color.red);

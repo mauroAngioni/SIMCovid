@@ -14,8 +14,8 @@ public class TestMovimento {
     
     public void muovi() {
         for(int i = 0; i < this.umani.size(); i++) {
-            int passiX = r.nextInt(2) - 1;
-            int passiY = r.nextInt(2) - 1;
+            int passiX = r.nextInt(3) - 1;
+            int passiY = r.nextInt(3) - 1;
             
             if(umani.get(i).getX() + passiX > m.getMaxX()) {
                 umani.get(i).setX(m.getMaxX() - umani.get(i).getX() + passiX);
