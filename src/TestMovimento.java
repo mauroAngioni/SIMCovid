@@ -13,24 +13,24 @@ public class TestMovimento {
     }
     
     public void muovi() {
-        for(int i = 0; i < this.umani.size(); i++) {
+        for(Umano u: umani) {
             int passiX = r.nextInt(3) - 1;
             int passiY = r.nextInt(3) - 1;
             
-            if(umani.get(i).getX() + passiX > m.getMaxX()) {
-                umani.get(i).setX(m.getMaxX() - umani.get(i).getX() + passiX);
+            if(u.getX() + passiX > m.getMaxX()) {
+                u.setX(m.getMaxX() - u.getX() + passiX);
             }
             
-            if(umani.get(i).getY() + passiY > m.getMaxY()) {
-                umani.get(i).setY(m.getMaxY() - umani.get(i).getY() + passiY);
+            if(u.getY() + passiY > m.getMaxY()) {
+                u.setY(m.getMaxY() - u.getY() + passiY);
             }
             
-            if(umani.get(i).getX() + passiX <= m.getMaxX()) {
-                umani.get(i).setX(umani.get(i).getX() + passiX);
+            if(u.getX() + passiX <= m.getMaxX()) {
+                u.setX(u.getX() + passiX);
             }
             
-            if(umani.get(i).getY() + passiY <= m.getMaxY()) {
-                umani.get(i).setY(umani.get(i).getY() + passiY);
+            if(u.getY() + passiY <= m.getMaxY()) {
+                u.setY(u.getY() + passiY);
             }                
         }
     }

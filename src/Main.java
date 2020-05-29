@@ -16,7 +16,7 @@ class Main {
   static public double imp_distanza;
 
 
-  public static void main(String[] args){
+  public static void main(String[] args) throws InterruptedException{
 
   	GestioneUmani umani = new GestioneUmani();
   	Contagio c = new Contagio();
@@ -77,6 +77,8 @@ class Main {
 		}
 		
 		System.out.println("Infetti: "+ infetti+"\nSani: "+sani);
+		
+		Thread.sleep(500);
     }
 
 
