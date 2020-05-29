@@ -1,13 +1,18 @@
 public class Mondo {
 
-	private final int maxX = 50;
-    private final int MaxY = 100;
+	private int maxX;
+    private int maxY;
+    
+    public Mondo(int x, int y) {
+    	this.maxX = x;
+    	this.maxY = y;
+    }
     
     public int getMaxX() {
         return maxX;
     }
     public int getMaxY() {
-        return MaxY;
+        return maxY;
     }
     
     

@@ -1,7 +1,9 @@
+import java.util.LinkedList;
+
 public class GestioneUmani extends LinkedList<Umano>{
   
-  public int Ricerca(Umano u, int range){
-    Umano app = new Umano(1000,1000,false);
+  public LinkedList<Umano> Ricerca(Umano u, int range){
+    Umano app = new Umano(0,0,0);
     Umano last = getLast();
     LinkedList<Umano> ListaVicini = new LinkedList<Umano>();
     int i = 0;
@@ -10,12 +12,13 @@ public class GestioneUmani extends LinkedList<Umano>{
     while (app != last){
       app = get(i);
       dist = Distanza(u, app);
-      if (dist <= range && app.getMalato() == true){
+      if (dist <= range && app.getSalute() == 1){
         ListaVicini.add(app);
       }
       i++;
     }
   return ListaVicini;
+  }
 
   
   

@@ -12,7 +12,8 @@ public class Plot extends JPanel{
 	
 	private LinkedList<Float> punti = new LinkedList<Float>();
 	private LinkedList<Float> sani = new LinkedList<Float>();
-	private boolean color = true;//true rosso false blue
+	private boolean color = true;//true rosso false blu
+	
 	public Plot(LinkedList<Float>punti, LinkedList<Float>sani) {
 		this.punti = punti;
 		this.sani = sani;
@@ -22,7 +23,6 @@ public class Plot extends JPanel{
 		super.paintComponent(g2);
 		Graphics2D g = (Graphics2D)g2;
 		int[] x = new int[punti.size()];
-		System.out.println("size punti " + punti.size());
 		int salto;
 		int pad = 40;//PAD
 		int width = getWidth()-pad;
@@ -36,15 +36,10 @@ public class Plot extends JPanel{
 		else {
 			salto = width/(punti.size()-1);
 		}
-		System.out.println("width " + width);
-		System.out.println("heigth " + heigth);
-		System.out.println("salto" + salto);
 		for (int j=0; j<punti.size() ; j++ ) {
 			x[j] = (salto*j)+pad;
-			System.out.println("x" + j + " " + x[j]);
 		}
 		Float max = punti.get(0);
-		System.out.println("punti.get(0) " + punti.get(0));
 		for (int i=1; i<punti.size(); i++) {
 			if(punti.get(i)>max) {
 				max=punti.get(i);
@@ -55,10 +50,8 @@ public class Plot extends JPanel{
 				max=sani.get(i);
 			}
 		}
-		System.out.println("max " + max);
+		
 		for (int i=0; i<punti.size()-1; i++) {
-			System.out.println("sani " + sani.get(i));
-			System.out.println("sani+1  " + sani.get(i+1));
 			g.setPaint(Color.blue);
 			g.drawLine(x[i], (int)Math.abs(((sani.get(i)/max)*heigth)-heigth-1), x[i+1], (int)Math.abs(((sani.get(i+1)/max)*heigth)-heigth-1));
 			g.setPaint(Color.red);

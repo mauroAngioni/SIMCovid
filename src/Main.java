@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 import javax.swing.JFrame;
 import java.util.LinkedList;
+import java.util.Locale;
+
 import javax.swing.JFrame;
 
 class Main {
@@ -16,52 +18,62 @@ class Main {
 
   public static void main(String[] args){
 
-  Umano U = new Umano(0, 0, 0);
-  GestioneUmani umani = new GestioneUmani();
-  Contagio c = new Contagio();
+  	GestioneUmani umani = new GestioneUmani();
+  	Contagio c = new Contagio();
 
- TestMovimento T = new TestMovimento(umani);
-
-  Page P = new Page(umani);
-
-
-   JFrame f = new JFrame();
-   f.setSize(500, 300);
-   f.getContentPane().add(newSampleComponent());
-   f.setVisible(true);
-
+  	Mondo m = new Mondo(20, 20);
+  	TestMovimento T = new TestMovimento(umani, m);
 
     Scanner input = new Scanner(System.in);
+    input.useLocale(Locale.US);
+    
     System.out.println("Range: ");
     range = input.nextInt();
 
-    Scanner input2 = new Scanner(System.in);
     System.out.println("Infettività: ");
-    infettività = input2.nextInt();
+    infettività = input.nextDouble();
 
-    Scanner input3 = new Scanner(System.in);
     System.out.println("Importanza difese: ");
-    imp_difese = input3.nextInt();
+    imp_difese = input.nextDouble();
 
-    Scanner input4 = new Scanner(System.in);
     System.out.println("Importanza distanza: ");
-    imp_distanza = input4.nextInt();
+    imp_distanza = input.nextDouble();
 
 
     for(int i = 0; i < 20; i++){ //Numero umani
-      umani.push(new Umano(0, 0, 0));
+      umani.add(new Umano(0, 0, 0));
     }
 
-    Mondo m = new Mondo();
     Init i = new Init();
     i.initializer(umani, m.getMaxX(),  m.getMaxY());
-
+    
+    Page P = new Page(umani);
+    
+    JFrame f = new JFrame();
+  	f.setSize(500, 300);
+  	f.getContentPane().add(new SampleComponent(umani));
+  	f.setVisible(true);
+    
     for (int j = 0; j < 1000; j++){
-      //Numero di iterazioni simulazione
-      T.muovi();
-      c.controlloContagio(umani);
-      f.repaint();
-      P.disegna();
+    	//Numero di iterazioni simulazione
+    	System.out.println("Iterazione: "+j);
+    	T.muovi();
+    	c.controlloContagio(umani);
+    	f.repaint();
+    	P.disegna();
+    	
+    	float infetti = 0;
+		float sani = 0;
+		for (int k=0; k<umani.size(); k++) {
+			if(umani.get(k).getSalute() == 1) {
+				infetti++; 
+			}
+			else {
+				sani++;
+			}
+		}
+		
+		System.out.println("Infetti: "+ infetti+"\nSani: "+sani);
     }
 
 
